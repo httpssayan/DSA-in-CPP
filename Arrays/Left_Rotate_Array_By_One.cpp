@@ -7,7 +7,6 @@ void Left_Rotate_Array_By_One(vector<int>& nums) {
         for(int j=1;j<n;j++){
             nums[i]=nums[j];
             i++;
-        
             }
             nums[n-1]=temp;
         };

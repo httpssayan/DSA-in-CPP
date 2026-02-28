@@ -12,13 +12,17 @@ class Node{
 };
 class Solution{
     public:
-    Node* deletionAtHead(Node*head){
-        if(head==NULL){
+    Node* DeleteAtTail(Node*head){
+        if(head==NULL || head->next==NULL){
+            delete head;
             return NULL;
         }
         Node*temp=head;
-        head=head->next;
-        delete temp;
+        while(temp->next->next!=NULL){
+            temp=temp->next;
+        }
+        delete temp->next;
+        temp->next=NULL;
         return head;
     }
 
@@ -39,8 +43,8 @@ int main(){
     head->next->next=new Node(30);
     cout<<"Original List: ";
     s.printList(head);
-    head=s.deletionAtHead(head);
-    cout<<"List after deletion at head: ";
+    head=s.DeleteAtTail(head);
+    cout<<"List after deleting tail: ";
     s.printList(head);
     return 0;
 }

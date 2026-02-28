@@ -12,18 +12,15 @@ class Node{
 };
 class Solution{
     public:
-    Node* length_of_ll(Node*head){
-        if(head==NULL){
-            return NULL;
-        }
+    bool searching_an_element(Node*head, int key){
         Node*temp=head;
-        int count=0;
         while(temp!=NULL){
-            count++;
+            if(temp->data==key){
+                return true;
+            }
             temp=temp->next;
         }
-        cout<<"Length of Linked List: "<<count<<endl;
-        return head;
+        return false;
     }
 
     void printList(Node*head){
@@ -41,5 +38,5 @@ int main(){
     Node*head=new Node(10);
     head->next=new Node(20);
     head->next->next=new Node(30);
-    cout<<length_of_ll(head)<<endl;
+    cout<<s.searching_an_element(head,20)<<endl;
 }

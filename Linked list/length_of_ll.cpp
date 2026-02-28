@@ -41,5 +41,5 @@ int main(){
     Node*head=new Node(10);
     head->next=new Node(20);
     head->next->next=new Node(30);
-    cout<<length_of_ll(head)<<endl;
+    cout<<s.length_of_ll(head)<<endl;
 }

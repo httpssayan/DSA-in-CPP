@@ -43,5 +43,12 @@ int main(){
     head->next->next->next = new Node(4);
     head->next->next->next->next = head;
     Solution s;
-    cout<<s.detect_a_cycle(head);
+    Node* res = s.detect_a_cycle(head);
+    if(res != NULL){
+        cout<<res->data;
+    }
+else{
+        cout<<"No cycle detected";
+    }
+    return 0;
 }

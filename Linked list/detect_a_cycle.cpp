@@ -16,23 +16,16 @@ class Node{
 
 class Solution{
     public:
-        Node* detect_a_cycle(Node* head){
+        bool detect_a_cycle(Node* head){
         if(head == NULL) return NULL;
         Node* slow = head;
         Node* fast = head;
         while (fast != NULL && fast->next != NULL){
             slow = slow->next;
             fast = fast->next->next;
-            if(slow == fast){
-                slow=head;
-                while(slow != fast){
-                    slow = slow->next;
-                    fast = fast->next;
-                }
-                return slow;
-            };
+            if(slow == fast) return true;
         }
-        return NULL;
+        return false;
 }
 
 };

@@ -17,7 +17,7 @@ class Node{
 class Solution{
     public:
         int detect_a_cycle(Node* head){
-        if(head == NULL) return NULL;
+        if(head == NULL) return 0;
         Node* slow = head;
         Node* fast = head;
         while (fast != NULL && fast->next != NULL){

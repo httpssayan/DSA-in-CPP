@@ -1,38 +1,29 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int maxLen(vector <int> &arr){
-    int n=arr.size();
+int len_of_longest_subarray_with_0_sum(vector<int> &arr) {
+    int n = arr.size();
     unordered_map<int, int> mp;
-    int maxl=0;
-    int sum=0;
+    int sum = 0, max_len = 0;
 
     for(int i=0;i<n;i++){
-        sum+=arr[i];
+        sum += arr[i];
 
         if(sum==0){
-            maxl=i+1;
+            max_len = i+1;
         }
 
-        else {
-            if(mp.find(sum)!=mp.end()){
-                maxl=max(maxl,i-mp[sum]);
-            }
-
-            else{
-                mp[sum]=i;
-            }
+        if(mp.find(sum) != mp.end()){
+            max_len = max(max_len, i - mp[sum]);
+        } else {
+            mp[sum] = i;
         }
     }
-    return maxl;
+    return max_len;
 }
 
 int main() {
-  // sample input
-  vector<int> A = {9, -3, 3, -1, 6, -5};
-  // compute size
-  // print result
-  cout << maxLen(A) << endl;
-  // exit
-  return 0;
+    vector<int> arr = {1, -1, 3, 2, -2, -3, 3};
+    cout << "Length of longest subarray with sum 0: " << len_of_longest_subarray_with_0_sum(arr) << endl;
+    return 0;
 }

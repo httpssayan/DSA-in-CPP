@@ -9,6 +9,11 @@ vector<int> asteroids_collision(vector<int>& asteroids){
             if(s.top() < abs(x)){
                 s.pop();
             }
+            else if(s.top()==abs(x)){
+                    s.pop();
+                    destroyed=true;
+                    break;
+                }
             else{
                 destroyed = true;
                 break;
